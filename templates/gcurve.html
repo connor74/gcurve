@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+      <div class="col s12">Введите ISIN код облигации:</div>
+        <div class="col s6">
+        <form method="POST" action="">
+            {{ form.csrf_token }}
+            {{ form.code.label }} {{ form.code(size=20, class='validate')}}
+            {{ form.date.label }} {{ form.date(size=20, class='datepicker') }}
+            <input type="submit" value="Поехали!">
+        </form>
+        </div>
+        <div class="col s6"> </div>
+    </div>
+    <div class="row">
+      <div class="col s12">Результат:</div>
+      <div class="col s3">{{ name }}</div>
+      <div class="col s3">{{ ISIN }}</div>
+        <div class="col s3">{{ date }}</div>
+        <div class="col s3">{{ date_json }}</div>
+    </div>
+
+{% endblock %}
